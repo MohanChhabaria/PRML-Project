@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification</title>
+
+
+    <link href="{% static 'css/fontawesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+
+    <script src="{% static 'js/bootstrap.bundle.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/jquery-3.3.1.slim..min.js' %}" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+
+
+    <div class="container py-5">
+
+        <!-- For demo purpose -->
+        <header class="text-center">
+            <h1 class="display-4">Natural Image Classification</h1>
+            <br>
+            <h5>Classes : Airplane, Automobile, Bird, Cat,
+                Deer, Dog, Frog, Horse, Ship, Truck</h5>
+            <h6><a href="https://github.com/MohanChhabaria/Natural-Image-Classification/blob/main/CIFAR%2010%20classification%20report.pdf">Learn More</a></h6>
+        </header>
+
+        {% if error_message %}
+        <script type="text/javascript"> alert('{{ error_message }}')</script>
+        {% endif %}
+
+
+
+        <div class="row py-4">
+            <div class="col-lg-6 mx-auto">
+
+                <!-- Upload image input-->
+                <form method="post" enctype="multipart/form-data" action="predict">
+                    {% csrf_token %}
+                    <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                        <input id="upload" name="filePath" type="file" onchange="readURL(this);"
+                            class="form-control border-0">
+                        <label id="upload-label" for="upload" class="font-weight-light text-muted" name="filePath">Drag
+                            and Drop here </label>
+                        <div class="input-group-append">
+                            <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i
+                                    class="fa fa-cloud-upload mr-2 text-muted"></i><small
+                                    class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
+                        </div>
+                    </div>
+
+                    <!-- Uploaded image area-->
+                    <p class="font-italic text-center">The image uploaded will be rendered inside the box below.</p>
+
+                    {% if filePathName%}
+                    <div class="image-area mt-4">
+                        <img id="imageResult" src="{{filePathName}}" alt=""
+                            class="img-fluid rounded shadow-sm mx-auto d-block">
+                    </div>
+
+                    <h3 class="mt-2 text-center"> Predictions </h3>
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">
+                                    <Nav>Class</Nav>
+                                </th>
+                                <th scope="col">
+                                    <Nav>{{ predictedLabel }}</Nav>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+
+
+
+                    <div class="text-center">
+                        <button type="submit" value='Submit' class="mt-4     w-25 btn btn-outline-dark">Submit</button>
+                    </div>
+                    {%else%}
+                    <div class="image-area mt-4">
+                        <img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" value='Submit' class="mt-4     w-25 btn btn-outline-dark">Submit</button>
+                    </div>
+                    {% endif %}
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="clear"></div>
+
+    <!-- Footer -->
+    <footer class="fixed-bottom">
+
+        <!-- <footer> -->
+        <div class="container">
+            <div class="row justify-content-end">
+
+                <div class="col-sm-12 socials">
+                    <ul>
+                        <li><a href="https://github.com/MohanChhabaria"><span class="ico-circle"><i
+                                        class="fab fa-github fa-2x"></i></span></a></li>
+                        <li><a href="mailto:chhabaria.1@iitj.ac.in"><span class="ico-circle"><i
+                                        class="fas fa-envelope fa-2x"></i></span></a></li>
+                        <li><a href="https://www.linkedin.com/in/mohan-chhabaria/"><span class="ico-circle"><i
+                                        class="fab fa-linkedin fa-2x"></i></span></a></li>
+                        <li><a href="https://www.instagram.com/mohanchhabaria/"><span class="ico-circle"><i
+                                        class="fab fa-instagram fa-2x"></i></span></a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-12">
+                    <p class="text-center">Made with <i class="fa fa-heart"></i> by <strong>Mohan Chhabaria</strong>. All
+                        Rights Reserved
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Footer -->
+
+</body>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/fontawesome.js' %}" crossorigin="anonymous"></script>
+
+</html>

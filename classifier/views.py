@@ -1,8 +1,6 @@
 import os
 from tensorflow import keras
-import pandas as pd
 import numpy as np
-import cv2
 import tensorflow as tf
 import shutil
 

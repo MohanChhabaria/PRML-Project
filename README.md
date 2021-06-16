@@ -1,5 +1,5 @@
 # Pattern Recognition and Machine Learning 
-# Course Project
+## Course Project
 
 _Course Instructor: Dr. Richa Singh_
 

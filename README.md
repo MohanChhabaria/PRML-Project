@@ -13,6 +13,6 @@ _Course Instructor: Dr. Richa Singh_
 
 | Name                                            | Roll Number | Year      | Department             |
 | ----------------------------------------------- | ----------- | --------- | ---------------------- |
-| [Deep Ashokbhai Patel](#) | B19CSE028   | Sophomore | Computer Science and Engineering |
+| [Deep Ashokbhai Patel](https://github.com/DeepPatel10) | B19CSE028   | Sophomore | Computer Science and Engineering |
 | [Maniyar Suyash](https://github.com/SuyashManiyar)    | B19EE095    | Sophomore | Electrical Engineering |
 | [Mohan Chhabaria](https://github.com/MohanChhabaria)    | B19EE096    | Sophomore | Electrical Engineering |
